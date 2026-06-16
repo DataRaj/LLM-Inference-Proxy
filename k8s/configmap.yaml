@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: llm-proxy-config
+  namespace: default
+data:
+  SERVER_PORT: "8080"
+  READ_TIMEOUT_SEC: "5"
+  WRITE_TIMEOUT_SEC: "60"
+  IDLE_TIMEOUT_SEC: "120"
+  UPSTREAM_TIMEOUT_SEC: "30"
+  MAX_RETRIES: "3"
+  RATE_LIMIT_WINDOW_SEC: "60"
+  RATE_LIMIT_MAX_REQUESTS: "100"
+  BACKEND_0_NAME: "openai-primary"
+  BACKEND_0_URL: "https://api.openai.com"
+  BACKEND_0_MODELS: "gpt-4o,gpt-4-turbo"
+  BACKEND_0_WEIGHT: "10"

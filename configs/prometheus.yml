@@ -1,0 +1,11 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: llm-proxy
+    static_configs:
+      - targets:
+          - proxy:8080   # service name from docker-compose / K8s Service DNS
+    metrics_path: /metrics
+    scheme: http
